@@ -1,0 +1,29 @@
+﻿@using WebApplication1.Models
+@model LoginViewModelcs
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        @Html.LabelFor(Model => Model.Username)
+        @Html.Label("Test")
+        <br />
+        @Html.EditorFor(m => m.Username)
+
+        @Html.LabelForModel()
+        @Html.EditorForModel()
+        <br />
+        @{
+            Html.RenderAction("JJPartial");
+        }
+    </div>
+</body>
+</html>

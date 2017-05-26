@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.LoginViewModelcs
+@{
+    Layout = null;
+    String returnURL = (String)ViewData["ReturnUrl"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
+        @using (Html.BeginForm("DoLogin", "Authentication", FormMethod.Post))
+        {
+        @Html.LabelFor(l => l.Username)
+        @Html.TextBoxFor(tb => tb.Username)
+        <br />
+        @Html.LabelFor(l => l.Password)
+        @Html.TextBoxFor(tb => tb.Password)
+        <input value="@returnURL" name="returnURL" type="hidden"/>
+        <br />
+        <input type="submit" name="BtnSubmit" value="Login" />
+        }
+    </div>
+</body>
+</html>
